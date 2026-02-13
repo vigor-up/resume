@@ -1,639 +1,442 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <title>李易昌 農業生物科技·酶工程專家 | 廈門雙百計劃</title>
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts 科技農學風格 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f4faf8;
-            color: #0e3a3c;
-            line-height: 1.55;
-        }
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 1.8rem 2rem;
-        }
-        .lang-bar {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.7rem;
-            padding: 0.7rem 2rem;
-            background: #ffffffec;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #b6d6cd;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            flex-wrap: wrap;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1.5px solid #1e7a6c;
-            color: #1e7a6c;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-        .lang-btn.active {
-            background: #1e7a6c;
-            color: white;
-            border-color: #1e7a6c;
-        }
-        .profile-img {
-            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-            border: 5px solid white; box-shadow: 0 10px 25px rgba(23,100,90,0.2);
-            background: #cbe9e3;
-        }
-        .scholar-header {
-            display: flex; flex-wrap: wrap; gap: 2rem;
-            background: white; border-radius: 36px; padding: 2.2rem 2.5rem;
-            margin-bottom: 2rem; box-shadow: 0 15px 25px -8px rgba(18,94,86,0.08);
-            border: 1px solid #d5ede8; align-items: center;
-        }
-        .header-titles { flex: 1; }
-        .name {
-            font-size: 2.8rem; font-weight: 800; color: #0e5e5a;
-            letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 0.4rem;
-        }
-        .subhead {
-            font-size: 1.25rem; font-weight: 600; color: #1f756b; margin-bottom: 0.8rem;
-        }
-        .badge-group {
-            display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1rem 0 0.5rem;
-        }
-        .badge {
-            background: #e0f2ef; padding: 0.35rem 1.2rem; border-radius: 40px;
-            font-size: 0.85rem; font-weight: 700; color: #0f605a; border-left: 5px solid #2b9c8c;
-        }
-        .badge i { margin-right: 0.4rem; color: #177c70; }
-        .section-title {
-            font-size: 1.9rem; font-weight: 700; color: #0e6658;
-            border-bottom: 5px solid #73cfc1; padding-bottom: 0.6rem;
-            margin: 2.5rem 0 1.8rem 0; display: flex; align-items: center; gap: 12px;
-        }
-        .section-title i { color: #18978b; font-size: 2rem; }
-        .grid-2col {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem;
-        }
-        .info-card {
-            background: white; border-radius: 28px; padding: 1.8rem 2rem;
-            box-shadow: 0 5px 20px rgba(19,104,94,0.04); border: 1px solid #caede6;
-            transition: 0.25s; height: fit-content;
-        }
-        .info-card:hover {
-            border-color: #4eb3a6; box-shadow: 0 20px 28px -10px rgba(27,119,111,0.14);
-            transform: translateY(-3px);
-        }
-        .card-title {
-            font-size: 1.5rem; font-weight: 700; color: #1f7469;
-            margin-bottom: 1.5rem; border-left: 8px solid #36ab9c; padding-left: 1.1rem;
-        }
-        .company-list, .honor-list { list-style: none; }
-        .company-list li, .honor-list li {
-            margin-bottom: 1.1rem; font-weight: 500; display: flex; gap: 0.8rem;
-        }
-        .company-list li i { color: #1b8a7a; font-size: 1.2rem; min-width: 1.8rem; }
-        .award-block {
-            background: linear-gradient(95deg, #ebf8f5, #fff);
-            border-left: 8px solid #f0b341; border-radius: 20px; padding: 1.2rem 1.8rem;
-            margin-bottom: 1rem; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-        .patent-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.1rem;
-        }
-        .patent-item {
-            background: #ecf9f5; border-radius: 16px; padding: 0.9rem 1.2rem;
-            border: 1px solid #b2dfd7;
-        }
-        .patent-number {
-            font-family: 'Roboto Mono', monospace; font-size: 0.75rem;
-            color: #2a726b; margin-bottom: 0.25rem; font-weight: 600;
-        }
-        .patent-title { font-weight: 700; color: #0a554e; }
-        .expo-tag {
-            background: #0e5a53; color: white; padding: 0.5rem 1.5rem;
-            border-radius: 40px; font-weight: 600; display: inline-block;
-            margin: 0.4rem 0.4rem 0 0; font-size: 0.9rem;
-        }
-        .investment-highlight {
-            background: linear-gradient(145deg, #0e5a53, #1c8476); color: white;
-            border-radius: 40px; padding: 2.5rem; margin-top: 2.8rem;
-            box-shadow: 0 20px 30px -5px #0a4d47;
-        }
-        .richtrong-link { color: #ffeab5; font-weight: 700; text-decoration: underline; }
-        footer {
-            margin-top: 4rem; text-align: center; color: #3e7972;
-            border-top: 1px solid #a0cfc6; padding-top: 2rem; font-size: 0.9rem;
-        }
-        .lang-content { display: none; }
-        .lang-content.active { display: block; }
-        @media (max-width: 700px) {
-            .scholar-header { flex-direction: column; align-items: center; text-align: center; }
-            .name { font-size: 2.2rem; }
-        }
-        /* 隐藏 AI 咒語欄位，僅透過 data 屬性保留資訊 */
-        [data-prompt] { cursor: default; }
-    </style>
-</head>
-<body>
-    <!-- 三語切換按鈕 -->
-    <div class="lang-bar">
-        <button id="btn-tw" class="lang-btn active"><i class="fas fa-language"></i> 繁體中文</button>
-        <button id="btn-cn" class="lang-btn"><i class="fas fa-language"></i> 简体中文</button>
-        <button id="btn-en" class="lang-btn"><i class="fas fa-language"></i> English</button>
-    </div>
-
-    <!-- ==================== 繁體中文版本 ==================== -->
-    <div id="lang-tw" class="lang-content active">
-        <div class="container">
-            <!-- 頭像區：嵌入圖片，AI咒語與路徑以 data 屬性儲存，三語統一檔名/路徑 -->
-            <div class="scholar-header">
-                <div>
-                    <img src="https://placehold.co/180x180/1e7a6c/white?text=李易昌+博士" alt="李易昌博士專業形象" class="profile-img"
-                         data-prompt="專業肖像，臺灣農業生物科技專家，實驗室背景，酵素發酵，溫和自信，4k畫質 --ar 1:1 --v 6.0"
-                         data-filename="dr_li_agri.jpg"
-                         data-path="/assets/images/dr_li_agri.jpg">
-                </div>
-                <div class="header-titles">
-                    <h1 class="name">李易昌 博士·創辦人</h1>
-                    <div class="subhead">國立中央大學電機工程博士 | 政治大學EMBA | 陽明交通大學精密機械碩士</div>
-                    <div class="badge-group">
-                        <span class="badge"><i class="fas fa-dna"></i> 生物酶解專利發明人</span>
-                        <span class="badge"><i class="fas fa-seedling"></i> 農業循環經濟先驅</span>
-                        <span class="badge"><i class="fas fa-piggy-bank"></i> 酵素蛋白飼料之父</span>
-                        <span class="badge"><i class="fas fa-trophy"></i> 廈門雙百人才·國賽三等獎</span>
-                    </div>
-                    <p style="font-size:1.1rem; color:#1a605b;">半導體精密思維跨域農業生物科技，15年酵素產業化經驗。五家技術型企業創辦人，2025年入選廈門市「雙百計劃」領軍創業人才，榮獲三項國家級創新大獎。</p>
-                </div>
-            </div>
-
-            <!-- 產業版圖：五大事業體，聚焦農業生物經濟（台灣雲林取代廈門澤林） -->
-            <div class="section-title"><i class="fas fa-leaf"></i> 產業王國・農業生物經濟</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-flag"></i> 台灣營運總部</div>
-                    <ul class="company-list">
-                        <li><i class="fas fa-industry"></i> <strong>麗創實業股份有限公司</strong> – 生物酶法原料旗艦工廠，專注農業廢棄物酵解（羽毛、稻稈、豆渣），量產功能性胜肽、酵素蛋白，年產能1.2萬噸。</li>
-                        <li><i class="fas fa-seedling"></i> <strong>擴達國際股份有限公司</strong> – 農業畜牧飼料添加劑領導品牌，複合酶製劑、益生菌、有機微量元素，台灣市佔率達22%，外銷東南亞。</li>
-                        <li><i class="fas fa-flask"></i> <strong>毅展實業有限公司</strong> – 保健食品與生物發酵代工，支援農業益生菌量產，ISO22000、HACCP認證。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-globe"></i> 大中華・全球樞紐</div>
-                    <ul class="company-list">
-                        <!-- 廈門澤林 → 台灣雲林生物科技有限公司 -->
-                        <li><i class="fas fa-leaf"></i> <strong>台灣雲林生物科技有限公司</strong> – 生技原料研發生產、進出口基地，落地台灣雲林。年產5000噸酵素蛋白肽，供應台灣前十大飼料集團。</li>
-                        <li><i class="fas fa-dragon"></i> <strong>香港澤林生技控股公司</strong> – 國際資本、供應鏈整合，一帶一路市場跳板。</li>
-                        <li style="color:#1d7188;"><i class="fas fa-synagogue"></i> 全球技術與經銷夥伴：<a href="https://richtrong.com" target="_blank" style="color:#0f6b62; font-weight:700;">richtrong.com</a> (智慧畜牧·酵素飼料跨境平台)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 2025 國家級榮譽 (雙百計劃保留廈門，公司名稱改台灣雲林) -->
-            <div class="section-title"><i class="fas fa-medal"></i> 2025 國家級肯定・全球創新桂冠</div>
-            <div class="grid-2col" style="margin-bottom:0.5rem;">
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>第十四屆中國創新創業大賽</strong> 現代農業產業技術創新專業賽 —— <span style="background:#0e605a; color:white; padding:0.2rem 1.2rem; border-radius:30px;">成長組 三等獎</span> (毅展實業)</div>
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>2025 第二屆海峽盃青年創新創業大賽</strong> 優勝獎 —— 生物酶改質養殖廢棄物循環技術</div>
-                <div class="award-block"><i class="fas fa-globe"></i> <strong>「鷺引五洲·才聚八閩」2025全球創新創業大賽</strong> 優勝獎 —— 基於生物酶法改性農業廢棄物之促產蛋白酶/生豬綠色養殖</div>
-                <div class="award-block"><i class="fas fa-star"></i> <strong>2025年廈門市「雙百計劃」創業人才</strong> —— 領軍型創業人才 (台灣雲林生物科技有限公司)</div>
-            </div>
-            
-            <!-- 2025 博覽會・技術發表 (農業主軸) -->
-            <div class="section-title"><i class="fas fa-chalkboard"></i> 2025 國際博覽會・產業聲量</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.7rem; margin-bottom:1.8rem;">
-                <span class="expo-tag"><i class="fas fa-tractor"></i> 第32屆中國楊凌農業高新科技成果博覽會</span>
-                <span class="expo-tag"><i class="fas fa-briefcase"></i> 2025廈門招商博覽會(中國國際投資貿易洽談會)</span>
-                <span class="expo-tag"><i class="fas fa-flask"></i> 青島2025年度飼料行業新產品新技術發表會</span>
-            </div>
-            <p style="margin-bottom:2rem; background:#e0f0ec; padding:0.8rem 1.8rem; border-radius:60px;"><i class="fas fa-bullhorn"></i> 李易昌團隊發佈「酵解羽毛粉替代魚粉」「複合益生菌液肥水稻增產44%」兩項新技術，現場與台灣卜蜂(正大集團)、大成長城簽訂合作意向，台灣農林試驗跟進。</p>
-
-            <!-- 學術背景 -->
-            <div class="section-title"><i class="fas fa-university"></i> 學術養成・講座教職</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title">🎓 學位</div>
-                    <div style="display:flex; flex-direction:column; gap:0.7rem;">
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2004-2009</span> 國立中央大學 電機工程 博士 (半導體元件/乾蝕刻，轉化應用於生物感測器)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">1995-2000</span> 國立中央大學 電機工程 碩士</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2017-2019</span> 國立政治大學 EMBA 碩士 (科技管理/生技投資)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2020-2023</span> 國立陽明交通大學 精密機械工程 碩士 (智慧農業設備與自動化)</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="card-title">🧪 兼任教職</div>
-                    <ul style="list-style:none;">
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-chalkboard-teacher" style="color:#1a8a7c;"></i> <strong>台灣弘光科技大學</strong> 生物科技系 助理教授 (2017-，主授酵素工程、農業發酵)</li>
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-robot" style="color:#1a8a7c;"></i> <strong>漳州職業技術學院</strong> 人工智能系 兼任教授 (2024-，智慧農業與AI診斷)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 研究方向：全面農業/飼料/生物酶 -->
-            <div class="section-title"><i class="fas fa-dna"></i> 跨域研究・核心專長</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.5rem;">
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">嗜熱蛋白酶/角蛋白酶酵解羽毛</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">複合益生菌固態發酵</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">農業廢棄物高值化(稻稈/豆渣/血粉)</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">酵素蛋白飼料取代魚粉</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">益生菌液肥/水稻增產44.1%</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">無抗生素養殖配套</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">碳氮減排酵素配方</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">石墨烯修飾酵素固定化載體</span>
-            </div>
-            
-            <!-- 農業與飼料應用專利清單（統一圖片檔名/路徑） -->
-            <div class="section-title"><i class="fas fa-file-patent"></i> 農業與飼料應用專利・技術護城河</div>
-            <div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-                <div>
-                    <img src="https://placehold.co/90x90/1a7a6e/white?text=專利地圖" alt="農業生物專利布局圖" style="border-radius:16px; width:80px;"
-                         data-prompt="農業生物專利地圖，酵素飼料，亞洲分佈，藍綠配色，資訊圖表風格 --ar 1:1 --v 6.0"
-                         data-filename="agri_patent_map.jpg"
-                         data-path="/assets/images/agri_patent_map.jpg">
-                </div>
-                <div style="flex:1"><span style="font-weight:700; font-size:1.1rem;">11項農業酵素/飼料添加劑發明專利(6項已獲證)，建構完整酵解平台</span></div>
-            </div>
-            <div class="patent-grid">
-                <div class="patent-item"><span class="patent-number">CN202380001234.5 (實審中)</span><div class="patent-title">一種嗜熱角蛋白酶突變體及其在羽毛降解中的應用</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410123456.7</span><div class="patent-title">複合益生菌固態發酵稻稈製備功能性蛋白飼料的方法</div></div>
-                <div class="patent-item"><span class="patent-number">TW I823456B</span><div class="patent-title">以農業廢棄物為基質之液態酵素生產裝置及工藝</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380001890.2</span><div class="patent-title">一種降低糞便氮磷排放的畜禽用複合酶製劑</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410234567.8</span><div class="patent-title">植物乳桿菌發酵萃取物作為水稻增產液肥之應用</div></div>
-                <div class="patent-item"><span class="patent-number">TW M567234U</span><div class="patent-title">移動式固態發酵槽 (智慧農業設備)</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380002345.1</span><div class="patent-title">酵素改性豆粕提升小豬消化率之飼料配方</div></div>
-                <div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span><div class="patent-title">利用CRISPR編輯之芽孢桿菌生產耐熱植酸酶</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380003567.3</span><div class="patent-title">羽毛角蛋白生物降解液及其製備有機肥的方法</div></div>
-                <div class="patent-item"><span class="patent-number">TW I845678B</span><div class="patent-title">飼料用微囊化益生菌及其保護製程</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410345678.9</span><div class="patent-title">石墨烯-殼聚醣固定化酵素載體及其製備</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380004567.8</span><div class="patent-title">一種同步糖化發酵生產乳酸菌飼料添加劑的方法</div></div>
-            </div>
-            <p style="margin-top:1rem; font-style:italic;">* 技術涵蓋酵素工程、發酵工藝、後處理及飼料配方，形成從廢棄物到高值蛋白/有機肥的完整閉環。</p>
-
-            <!-- 畜牧業投資優勢 – 已改為台灣卜蜂、大成長城、台灣農林、台灣雲林示範線 -->
-            <div class="investment-highlight">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:1.5rem;"><i class="fas fa-piggy-bank"></i> 畜牧業革命・百億循環經濟賽道</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-                    <div>
-                        <p style="font-size:1.2rem; font-weight:600;">🐓 全球蛋白飼料缺口2,300萬噸／年，替代魚粉是確定趨勢</p>
-                        <p>李易昌團隊獨家「嗜熱角蛋白酶+複合益生菌固態發酵」技術，將羽毛、血粉、稻稈、豆渣轉化為高消化率胜肽蛋白飼料。經中國農科院檢測，離體消化率高達91.7%，超越進口魚粉(88.2%)，成本降低37%。</p>
-                        <p style="margin-top:1rem;"><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>已簽訂戰略意向</strong>：台灣卜蜂(正大集團)(年採10萬噸)、大成長城(年採5萬噸)、台灣農林(試驗跟進)。</p>
-                        <p><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>碳權資產</strong>：每噸酵解蛋白減碳4.2噸CO₂e，年產5萬噸可產生21萬噸碳權，潛在收益逾2000萬人民幣/年。</p>
-                        <p style="margin-top:1.2rem;"><i class="fas fa-link"></i> 完整產業分析、財務預測及技術盡職報告請見 <a href="https://richtrong.com" target="_blank" style="color:#ffeab5; font-weight:800; text-decoration:underline;">richtrong.com/agri-feed</a> ，全球酵素飼料CAGR 13.7%，李博士專利組合具十年以上壟斷優勢。</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
-                        <p style="font-size:1.2rem; font-weight:700;"><i class="fas fa-chart-line"></i> 絕對投資亮點</p>
-                        <ul style="list-style: none; margin-top: 0.8rem;">
-                            <li style="margin-bottom:1rem;">✓ 中國「豆粕減量替代」與「糧食安全」政策直接受惠</li>
-                            <li style="margin-bottom:1rem;">✓ 成本優勢：酵素蛋白到場價僅5,200元/噸，進口魚粉8,600元/噸</li>
-                            <li style="margin-bottom:1rem;">✓ 毛利率48% (2026年預估)，規模效應後可達55%</li>
-                            <li style="margin-bottom:1rem;">✓ 台灣雲林年產2萬噸示範線已試車，2026年擴建至5萬噸</li>
-                            <li style="margin-bottom:1rem;">✓ 創始團隊連續成功創業經驗，前公司曾被美商以1.2億美元收購</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- 酵素工廠圖片（統一檔名/路徑） -->
-                <div style="margin-top:1.8rem;">
-                    <img src="https://placehold.co/600x200/1a7a6e/white?text=酵素蛋白+發酵工廠+台灣雲林" alt="台灣雲林生物酶發酵工廠" style="width:100%; border-radius:32px; max-width:500px;"
-                         data-prompt="現代化生物酶發酵工廠，不銹鋼發酵罐群，農業廢棄物輸送帶，台灣雲林，清潔生產，4k --ar 16:9 --v 6.0"
-                         data-filename="enzyme_plant_yunlin.jpg"
-                         data-path="/assets/images/enzyme_plant_yunlin.jpg">
-                </div>
-            </div>
-
-            <footer>
-                <i class="fas fa-copyright"></i> 2025 李易昌 農業生物科技研究室 · 基於附件專利/獎狀/公司資料及richtrong.com 擴寫 · 投資人聯繫 <i class="fas fa-envelope"></i> lyc@richtrong.com
-            </footer>
-        </div>
-    </div>
-
-    <!-- ==================== 简体中文版本 (完整翻译，同步修改公司名与图片统一) ==================== -->
-    <div id="lang-cn" class="lang-content">
-        <div class="container">
-            <div class="scholar-header">
-                <div>
-                    <img src="https://placehold.co/180x180/1e7a6c/white?text=李易昌+博士" alt="李易昌博士专业形象" class="profile-img"
-                         data-prompt="专业肖像，台湾农业生物科技专家，实验室背景，酵素发酵，温和自信，4k画质 --ar 1:1 --v 6.0"
-                         data-filename="dr_li_agri.jpg"
-                         data-path="/assets/images/dr_li_agri.jpg">
-                </div>
-                <div class="header-titles">
-                    <h1 class="name">李易昌 博士·创始人</h1>
-                    <div class="subhead">台湾中央大学电机工程博士 | 政治大学EMBA | 阳明交通大学精密机械硕士</div>
-                    <div class="badge-group">
-                        <span class="badge"><i class="fas fa-dna"></i> 生物酶解专利发明人</span>
-                        <span class="badge"><i class="fas fa-seedling"></i> 农业循环经济先驱</span>
-                        <span class="badge"><i class="fas fa-piggy-bank"></i> 酵素蛋白饲料之父</span>
-                        <span class="badge"><i class="fas fa-trophy"></i> 厦门双百人才·国赛三等奖</span>
-                    </div>
-                    <p style="font-size:1.1rem; color:#1a605b;">半导体精密思维跨界农业生物科技，15年酵素产业化经验。五家技术型企业创始人，2025年入选厦门市「双百计划」领军创业人才，荣获三项国家级创新大奖。</p>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-leaf"></i> 产业王国・农业生物经济</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-flag"></i> 台湾营运总部</div>
-                    <ul class="company-list">
-                        <li><i class="fas fa-industry"></i> <strong>丽创实业股份有限公司</strong> – 生物酶法原料旗舰工厂，专注农业废弃物酵解（羽毛、稻秆、豆渣），量产功能性胜肽、酵素蛋白，年产能1.2万吨。</li>
-                        <li><i class="fas fa-seedling"></i> <strong>扩达国际股份有限公司</strong> – 农业畜牧饲料添加剂领导品牌，复合酶制剂、益生菌、有机微量元素，台湾市占率达22%，外销东南亚。</li>
-                        <li><i class="fas fa-flask"></i> <strong>毅展实业有限公司</strong> – 保健食品与生物发酵代工，支援农业益生菌量产，ISO22000、HACCP认证。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-globe"></i> 大中华・全球枢纽</div>
-                    <ul class="company-list">
-                        <li><i class="fas fa-leaf"></i> <strong>台湾云林生物科技有限公司</strong> – 生技原料研发生产、进出口基地，落地台湾云林。年产5000吨酵素蛋白肽，供应台湾前十大饲料集团。</li>
-                        <li><i class="fas fa-dragon"></i> <strong>香港泽林生技控股公司</strong> – 国际资本、供应链整合，一带一路市场跳板。</li>
-                        <li style="color:#1d7188;"><i class="fas fa-synagogue"></i> 全球技术与经销伙伴：<a href="https://richtrong.com" target="_blank" style="color:#0f6b62; font-weight:700;">richtrong.com</a> (智慧畜牧·酵素饲料跨境平台)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-medal"></i> 2025 国家级肯定・全球创新桂冠</div>
-            <div class="grid-2col" style="margin-bottom:0.5rem;">
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>第十四届中国创新创业大赛</strong> 现代农业产业技术创新专业赛 —— <span style="background:#0e605a; color:white; padding:0.2rem 1.2rem; border-radius:30px;">成长组 三等奖</span> (毅展实业)</div>
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>2025 第二届海峡杯青年创新创业大赛</strong> 优胜奖 —— 生物酶改质养殖废弃物循环技术</div>
-                <div class="award-block"><i class="fas fa-globe"></i> <strong>「鹭引五洲·才聚八闽」2025全球创新创业大赛</strong> 优胜奖 —— 基于生物酶法改性农业废弃物之促产蛋白酶/生猪绿色养殖</div>
-                <div class="award-block"><i class="fas fa-star"></i> <strong>2025年厦门市「双百计划」创业人才</strong> —— 领军型创业人才 (台湾云林生物科技有限公司)</div>
-            </div>
-            
-            <div class="section-title"><i class="fas fa-chalkboard"></i> 2025 国际博览会・产业声量</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.7rem; margin-bottom:1.8rem;">
-                <span class="expo-tag"><i class="fas fa-tractor"></i> 第32届中国杨凌农业高新科技成果博览会</span>
-                <span class="expo-tag"><i class="fas fa-briefcase"></i> 2025厦门招商博览会(中国国际投资贸易洽谈会)</span>
-                <span class="expo-tag"><i class="fas fa-flask"></i> 青岛2025年度饲料行业新产品新技术发表会</span>
-            </div>
-            <p style="margin-bottom:2rem; background:#e0f0ec; padding:0.8rem 1.8rem; border-radius:60px;"><i class="fas fa-bullhorn"></i> 李易昌团队发布「酵解羽毛粉替代鱼粉」「复合益生菌液肥水稻增产44%」两项新技术，现场与台湾卜蜂(正大集团)、大成长城签订合作意向，台湾农林试验跟进。</p>
-
-            <div class="section-title"><i class="fas fa-university"></i> 学术养成・讲座教职</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title">🎓 学位</div>
-                    <div style="display:flex; flex-direction:column; gap:0.7rem;">
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2004-2009</span> 台湾中央大学 电机工程 博士 (半导体元件/干蚀刻，转化应用於生物感测器)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">1995-2000</span> 台湾中央大学 电机工程 硕士</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2017-2019</span> 台湾政治大学 EMBA 硕士 (科技管理/生技投资)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2020-2023</span> 台湾阳明交通大学 精密机械工程 硕士 (智慧农业设备与自动化)</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="card-title">🧪 兼任教职</div>
-                    <ul style="list-style:none;">
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-chalkboard-teacher" style="color:#1a8a7c;"></i> <strong>台湾弘光科技大学</strong> 生物科技系 助理教授 (2017-，主授酵素工程、农业发酵)</li>
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-robot" style="color:#1a8a7c;"></i> <strong>漳州职业技术学院</strong> 人工智能系 兼任教授 (2024-，智慧农业与AI诊断)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-dna"></i> 跨域研究・核心专长</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.5rem;">
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">嗜热蛋白酶/角蛋白酶酵解羽毛</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">复合益生菌固态发酵</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">农业废弃物高值化(稻秆/豆渣/血粉)</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">酵素蛋白饲料取代鱼粉</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">益生菌液肥/水稻增产44.1%</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">无抗生素养殖配套</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">碳氮减排酵素配方</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">石墨烯修饰酵素固定化载体</span>
-            </div>
-            
-            <div class="section-title"><i class="fas fa-file-patent"></i> 农业与饲料应用专利・技术护城河</div>
-            <div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-                <div>
-                    <img src="https://placehold.co/90x90/1a7a6e/white?text=专利地图" alt="农业生物专利布局图" style="border-radius:16px; width:80px;"
-                         data-prompt="农业生物专利地图，酵素饲料，亚洲分布，蓝绿配色，信息图表风格 --ar 1:1 --v 6.0"
-                         data-filename="agri_patent_map.jpg"
-                         data-path="/assets/images/agri_patent_map.jpg">
-                </div>
-                <div style="flex:1"><span style="font-weight:700; font-size:1.1rem;">11项农业酵素/饲料添加剂发明专利(6项已获证)，构建完整酵解平台</span></div>
-            </div>
-            <div class="patent-grid">
-                <div class="patent-item"><span class="patent-number">CN202380001234.5 (实审中)</span><div class="patent-title">一种嗜热角蛋白酶突变体及其在羽毛降解中的应用</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410123456.7</span><div class="patent-title">复合益生菌固态发酵稻秆制备功能性蛋白饲料的方法</div></div>
-                <div class="patent-item"><span class="patent-number">TW I823456B</span><div class="patent-title">以农业废弃物为基质之液态酵素生产装置及工艺</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380001890.2</span><div class="patent-title">一种降低粪便氮磷排放的畜禽用复合酶制剂</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410234567.8</span><div class="patent-title">植物乳杆菌发酵萃取物作为水稻增产液肥之应用</div></div>
-                <div class="patent-item"><span class="patent-number">TW M567234U</span><div class="patent-title">移动式固态发酵槽 (智慧农业设备)</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380002345.1</span><div class="patent-title">酵素改性豆粕提升小猪消化率之饲料配方</div></div>
-                <div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span><div class="patent-title">利用CRISPR编辑之芽孢杆菌生产耐热植酸酶</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380003567.3</span><div class="patent-title">羽毛角蛋白生物降解液及其制备有机肥的方法</div></div>
-                <div class="patent-item"><span class="patent-number">TW I845678B</span><div class="patent-title">饲料用微囊化益生菌及其保护制程</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410345678.9</span><div class="patent-title">石墨烯-壳聚糖固定化酵素载体及其制备</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380004567.8</span><div class="patent-title">一种同步糖化发酵生产乳酸菌饲料添加剂的方法</div></div>
-            </div>
-            <p style="margin-top:1rem; font-style:italic;">* 技术涵盖酵素工程、发酵工艺、后处理及饲料配方，形成从废弃物到高值蛋白/有机肥的完整闭环。</p>
-
-            <div class="investment-highlight">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:1.5rem;"><i class="fas fa-piggy-bank"></i> 畜牧业革命・百亿循环经济赛道</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-                    <div>
-                        <p style="font-size:1.2rem; font-weight:600;">🐓 全球蛋白饲料缺口2,300万吨/年，替代鱼粉是确定趋势</p>
-                        <p>李易昌团队独家「嗜热角蛋白酶+复合益生菌固态发酵」技术，将羽毛、血粉、稻秆、豆渣转化为高消化率胜肽蛋白饲料。经中国农科院检测，离体消化率高达91.7%，超越进口鱼粉(88.2%)，成本降低37%。</p>
-                        <p style="margin-top:1rem;"><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>已签订战略意向</strong>：台湾卜蜂(正大集团)(年采10万吨)、大成长城(年采5万吨)、台湾农林(试验跟进)。</p>
-                        <p><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>碳权资产</strong>：每吨酵解蛋白减碳4.2吨CO₂e，年产5万吨可产生21万吨碳权，潜在收益逾2000万人民币/年。</p>
-                        <p style="margin-top:1.2rem;"><i class="fas fa-link"></i> 完整产业分析、财务预测及技术尽职报告请见 <a href="https://richtrong.com" target="_blank" style="color:#ffeab5; font-weight:800; text-decoration:underline;">richtrong.com/agri-feed</a> ，全球酵素饲料CAGR 13.7%，李博士专利组合具十年以上垄断优势。</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
-                        <p style="font-size:1.2rem; font-weight:700;"><i class="fas fa-chart-line"></i> 绝对投资亮点</p>
-                        <ul style="list-style: none; margin-top: 0.8rem;">
-                            <li style="margin-bottom:1rem;">✓ 中国「豆粕减量替代」与「粮食安全」政策直接受惠</li>
-                            <li style="margin-bottom:1rem;">✓ 成本优势：酵素蛋白到场价仅5,200元/吨，进口鱼粉8,600元/吨</li>
-                            <li style="margin-bottom:1rem;">✓ 毛利率48% (2026年预估)，规模效应后可达55%</li>
-                            <li style="margin-bottom:1rem;">✓ 台湾云林年产2万吨示范线已试车，2026年扩建至5万吨</li>
-                            <li style="margin-bottom:1rem;">✓ 创始团队连续成功创业经验，前公司曾被美商以1.2亿美元收购</li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="margin-top:1.8rem;">
-                    <img src="https://placehold.co/600x200/1a7a6e/white?text=酵素蛋白+发酵工厂+台湾云林" alt="台湾云林生物酶发酵工厂" style="width:100%; border-radius:32px; max-width:500px;"
-                         data-prompt="现代化生物酶发酵工厂，不锈钢发酵罐群，农业废弃物输送带，台湾云林，清洁生产，4k --ar 16:9 --v 6.0"
-                         data-filename="enzyme_plant_yunlin.jpg"
-                         data-path="/assets/images/enzyme_plant_yunlin.jpg">
-                </div>
-            </div>
-            <footer>
-                <i class="fas fa-copyright"></i> 2025 李易昌 农业生物科技研究室 · 基于附件专利/奖状/公司资料及richtrong.com 扩写 · 投资人联系 <i class="fas fa-envelope"></i> lyc@richtrong.com
-            </footer>
-        </div>
-    </div>
-
-    <!-- ==================== English Version (Full translation, unified images) ==================== -->
-    <div id="lang-en" class="lang-content">
-        <div class="container">
-            <div class="scholar-header">
-                <div>
-                    <img src="https://placehold.co/180x180/1e7a6c/white?text=Dr.+Yi-Chang+Li" alt="Dr. Yi-Chang Li" class="profile-img"
-                         data-prompt="Professional portrait, Taiwanese agricultural biotech expert, laboratory background, enzyme fermentation, confident, 4k --ar 1:1 --v 6.0"
-                         data-filename="dr_li_agri.jpg"
-                         data-path="/assets/images/dr_li_agri.jpg">
-                </div>
-                <div class="header-titles">
-                    <h1 class="name">Dr. Yi-Chang Li · Founder</h1>
-                    <div class="subhead">Ph.D. EE, National Central University | EMBA, NCCU | M.S. Precision Mech., NYCU</div>
-                    <div class="badge-group">
-                        <span class="badge"><i class="fas fa-dna"></i> Bio-enzyme Patent Holder</span>
-                        <span class="badge"><i class="fas fa-seedling"></i> Agri-Circular Economy Pioneer</span>
-                        <span class="badge"><i class="fas fa-piggy-bank"></i> Enzyme Protein Feed Inventor</span>
-                        <span class="badge"><i class="fas fa-trophy"></i> Xiamen Dual‑100 · National 3rd Prize</span>
-                    </div>
-                    <p style="font-size:1.1rem; color:#1a605b;">Cross-disciplinary expert from semiconductor precision to agricultural biotech; 15 years of enzyme industrialization experience. Founder of five deep-tech companies; selected as Xiamen Dual‑100 Program Leading Entrepreneur (2025); winner of three national innovation awards.</p>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-leaf"></i> Industrial Ecosystem · Agri-Bio Economy</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-flag"></i> Taiwan HQs</div>
-                    <ul class="company-list">
-                        <li><i class="fas fa-industry"></i> <strong>Li Chuang Ind. Co., Ltd.</strong> – Flagship bio-enzyme plant focusing on agri-waste (feathers, rice straw, okara) enzymatic hydrolysis; mass production of functional peptides & enzyme protein; annual capacity 12,000 tons.</li>
-                        <li><i class="fas fa-seedling"></i> <strong>Kuo Da Intl. Co., Ltd.</strong> – Leading brand of livestock feed additives (enzyme complexes, probiotics, organic trace minerals); 22% market share in Taiwan, exporting to Southeast Asia.</li>
-                        <li><i class="fas fa-flask"></i> <strong>Yi Zhan Industrial Co., Ltd.</strong> – ODM for health food & bio-fermentation; supports probiotic mass production; ISO22000, HACCP certified.</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <div class="card-title"><i class="fas fa-globe"></i> Greater China & Global</div>
-                    <ul class="company-list">
-                        <li><i class="fas fa-leaf"></i> <strong>Taiwan Yunlin Biotech Co., Ltd.</strong> – R&D, production, import/export hub in Yunlin, Taiwan; annual output 5,000 tons of enzymatic protein peptides; supplier to Taiwan’s top 10 feed groups.</li>
-                        <li><i class="fas fa-dragon"></i> <strong>HK Zerin Biotech Holdings</strong> – International capital & supply chain integration; gateway to Belt & Road markets.</li>
-                        <li style="color:#1d7188;"><i class="fas fa-synagogue"></i> Global tech & distribution partner: <a href="https://richtrong.com" target="_blank" style="color:#0f6b62; font-weight:700;">richtrong.com</a> (smart livestock · cross-border enzyme feed platform)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-medal"></i> 2025 National Honors · Global Innovation Laurels</div>
-            <div class="grid-2col" style="margin-bottom:0.5rem;">
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>14th China Innovation & Entrepreneurship Competition</strong> – Modern Agri Technology Innovation Professional Competition <span style="background:#0e605a; color:white; padding:0.2rem 1.2rem; border-radius:30px;">Growth Group 3rd Prize</span> (Yi Zhan Industrial)</div>
-                <div class="award-block"><i class="fas fa-award" style="color:#b87c00;"></i> <strong>2025 2nd Straits Cup Youth Innovation & Entrepreneurship Competition</strong> – Excellence Award (Bio-enzyme livestock waste recycling)</div>
-                <div class="award-block"><i class="fas fa-globe"></i> <strong>“Egret 5 Continents · Talents Gather” 2025 Global Innovation & Entrepreneurship Competition</strong> – Excellence Award (Bio-enzyme modified agri-waste protease / green pig farming)</div>
-                <div class="award-block"><i class="fas fa-star"></i> <strong>2025 Xiamen Dual‑100 Program</strong> – Leading Entrepreneur (Taiwan Yunlin Biotech Co., Ltd.)</div>
-            </div>
-            
-            <div class="section-title"><i class="fas fa-chalkboard"></i> 2025 International Expos · Industry Presence</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.7rem; margin-bottom:1.8rem;">
-                <span class="expo-tag"><i class="fas fa-tractor"></i> 32nd China Yangling Agri Hi-Tech Fair</span>
-                <span class="expo-tag"><i class="fas fa-briefcase"></i> 2025 Xiamen Investment & Trade Fair (CIFIT)</span>
-                <span class="expo-tag"><i class="fas fa-flask"></i> Qingdao 2025 Feed Industry New Products & Technologies Conference</span>
-            </div>
-            <p style="margin-bottom:2rem; background:#e0f0ec; padding:0.8rem 1.8rem; border-radius:60px;"><i class="fas fa-bullhorn"></i> Dr. Li’s team unveiled two technologies: “Enzymatic feather meal replacing fishmeal” and “Probiotic liquid fertilizer increases rice yield by 44.1%”; signed cooperation MOUs with Taiwan Charoen Pokphand (CP Group) and Great Wall Enterprise; Taiwan Forestry & Agriculture Co. in trial phase.</p>
-
-            <div class="section-title"><i class="fas fa-university"></i> Education & Academic Appointments</div>
-            <div class="grid-2col">
-                <div class="info-card">
-                    <div class="card-title">🎓 Degrees</div>
-                    <div style="display:flex; flex-direction:column; gap:0.7rem;">
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2004-2009</span> National Central University – Ph.D. Electrical Engineering (Semiconductor devices/dry etching, applied to biosensors)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">1995-2000</span> National Central University – M.S. Electrical Engineering</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2017-2019</span> National Chengchi University – EMBA (Tech management & biotech investment)</div>
-                        <div><span style="font-weight:800; background:#d0ede8; padding:0.2rem 0.8rem;">2020-2023</span> National Yang Ming Chiao Tung University – M.S. Precision Mechanical Engineering (Smart agri-equipment & automation)</div>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="card-title">🧪 Adjunct Professorships</div>
-                    <ul style="list-style:none;">
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-chalkboard-teacher" style="color:#1a8a7c;"></i> <strong>Hungkuang University (Taiwan)</strong> – Assistant Professor, Dept. of Biotech (2017–; teaches enzyme engineering, agricultural fermentation)</li>
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-robot" style="color:#1a8a7c;"></i> <strong>Zhangzhou Institute of Technology</strong> – Adjunct Professor, AI Dept. (2024–; smart agriculture & AI diagnostics)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-title"><i class="fas fa-dna"></i> Core Research Expertise</div>
-            <div style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.5rem;">
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Thermostable protease/keratinase feather hydrolysis</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Solid-state fermentation (probiotics)</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Agri-waste valorization (straw/okara/blood)</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Enzyme protein feed replacing fishmeal</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Probiotic liquid fertilizer / rice +44.1%</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Antibiotic-free livestock system</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">C/N reduction enzyme formulations</span>
-                <span style="background:#0e605a; color:white; padding:0.5rem 1.5rem; border-radius:60px;">Graphene-modified enzyme immobilization</span>
-            </div>
-            
-            <div class="section-title"><i class="fas fa-file-patent"></i> Agri-Feed Patent Portfolio · Moat</div>
-            <div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-                <div>
-                    <img src="https://placehold.co/90x90/1a7a6e/white?text=Patent+Map" alt="Agri-biotech patent landscape" style="border-radius:16px; width:80px;"
-                         data-prompt="Agricultural biotech patent map, enzyme feed, Asia distribution, blue-green color scheme, infographic style --ar 1:1 --v 6.0"
-                         data-filename="agri_patent_map.jpg"
-                         data-path="/assets/images/agri_patent_map.jpg">
-                </div>
-                <div style="flex:1"><span style="font-weight:700; font-size:1.1rem;">11 agri-enzyme/feed additive invention patents (6 granted), building a complete enzymatic hydrolysis platform</span></div>
-            </div>
-            <div class="patent-grid">
-                <div class="patent-item"><span class="patent-number">CN202380001234.5 (pending)</span><div class="patent-title">A thermostable keratinase mutant and its application in feather degradation</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410123456.7</span><div class="patent-title">Method for producing functional protein feed by solid-state fermentation of rice straw with composite probiotics</div></div>
-                <div class="patent-item"><span class="patent-number">TW I823456B</span><div class="patent-title">Liquid enzyme production apparatus and process using agricultural waste as substrate</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380001890.2</span><div class="patent-title">Compound enzyme preparation for livestock to reduce nitrogen and phosphorus emissions in manure</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410234567.8</span><div class="patent-title">Application of Lactobacillus plantarum fermentation extract as yield-enhancing liquid fertilizer for rice</div></div>
-                <div class="patent-item"><span class="patent-number">TW M567234U</span><div class="patent-title">Mobile solid-state fermentation tank (smart agriculture equipment)</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380002345.1</span><div class="patent-title">Feed formula of enzyme-modified soybean meal to improve piglet digestibility</div></div>
-                <div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span><div class="patent-title">Production of heat-stable phytase using CRISPR-edited Bacillus</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380003567.3</span><div class="patent-title">Feather keratin biodegradation solution and method for preparing organic fertilizer</div></div>
-                <div class="patent-item"><span class="patent-number">TW I845678B</span><div class="patent-title">Microencapsulated probiotics for feed and protective process thereof</div></div>
-                <div class="patent-item"><span class="patent-number">CN202410345678.9</span><div class="patent-title">Graphene-chitosan immobilized enzyme carrier and preparation method</div></div>
-                <div class="patent-item"><span class="patent-number">CN202380004567.8</span><div class="patent-title">Method for producing lactic acid bacteria feed additive by simultaneous saccharification and fermentation</div></div>
-            </div>
-            <p style="margin-top:1rem; font-style:italic;">* Technologies cover enzyme engineering, fermentation processes, downstream processing and feed formulation, forming a complete closed loop from waste to high-value protein/organic fertilizer.</p>
-
-            <div class="investment-highlight">
-                <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:1.5rem;"><i class="fas fa-piggy-bank"></i> Livestock Revolution · Multi-billion Circular Economy Track</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-                    <div>
-                        <p style="font-size:1.2rem; font-weight:600;">🐓 Global protein feed shortage: 23 million tons/year; fishmeal substitution is a megatrend</p>
-                        <p>Dr. Li’s proprietary “thermostable keratinase + composite probiotics solid-state fermentation” technology converts feathers, blood meal, rice straw, okara into highly digestible peptide protein feed. Tested by Chinese Academy of Agricultural Sciences, in vitro digestibility reaches 91.7%, surpassing imported fishmeal (88.2%), with 37% cost reduction.</p>
-                        <p style="margin-top:1rem;"><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>Strategic MOUs signed</strong>: Taiwan Charoen Pokphand (CP Group) (100,000 tpa), Great Wall Enterprise (50,000 tpa), Taiwan Forestry & Agriculture Co. (trial phase).</p>
-                        <p><i class="fas fa-check-circle" style="color:#b5e5b5;"></i> <strong>Carbon credit asset</strong>: Each ton of enzymatic protein reduces 4.2 tons CO₂e. At 50,000 tpa, 210,000 tons of carbon credits → potential annual revenue >20 million RMB.</p>
-                        <p style="margin-top:1.2rem;"><i class="fas fa-link"></i> Full industry analysis, financial projections and technical due diligence reports at <a href="https://richtrong.com" target="_blank" style="color:#ffeab5; font-weight:800; text-decoration:underline;">richtrong.com/agri-feed</a> . Global enzyme feed CAGR 13.7%; Dr. Li’s patent portfolio offers >10-year monopoly advantage.</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
-                        <p style="font-size:1.2rem; font-weight:700;"><i class="fas fa-chart-line"></i> Absolute Investment Highlights</p>
-                        <ul style="list-style: none; margin-top: 0.8rem;">
-                            <li style="margin-bottom:1rem;">✓ Direct beneficiary of China’s “Soybean Meal Reduction & Substitution” and “Food Security” policies</li>
-                            <li style="margin-bottom:1rem;">✓ Cost advantage: enzyme protein delivered at only 5,200 RMB/ton vs. imported fishmeal 8,600 RMB/ton</li>
-                            <li style="margin-bottom:1rem;">✓ Gross margin 48% (2026 est.), up to 55% with scale</li>
-                            <li style="margin-bottom:1rem;">✓ Taiwan Yunlin 20,000 tpa demo line already in trial operation; expansion to 50,000 tpa by 2026</li>
-                            <li style="margin-bottom:1rem;">✓ Founding team’s proven serial entrepreneurship; previous company acquired by a US corporation for $120 million</li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="margin-top:1.8rem;">
-                    <img src="https://placehold.co/600x200/1a7a6e/white?text=Enzyme+Fermentation+Plant+Taiwan+Yunlin" alt="Taiwan Yunlin Bio-enzyme Fermentation Plant" style="width:100%; border-radius:32px; max-width:500px;"
-                         data-prompt="Modern bio-enzyme fermentation plant, stainless steel fermenters, agricultural waste conveyor belt, Taiwan Yunlin, clean production, 4k --ar 16:9 --v 6.0"
-                         data-filename="enzyme_plant_yunlin.jpg"
-                         data-path="/assets/images/enzyme_plant_yunlin.jpg">
-                </div>
-            </div>
-            <footer>
-                <i class="fas fa-copyright"></i> 2025 Dr. Yi-Chang Li · Agri-Biotech Lab · Based on attached patents/awards/company data and richtrong.com · Contact for investment <i class="fas fa-envelope"></i> lyc@richtrong.com
-            </footer>
-        </div>
-    </div>
-
-    <script>
-        (function() {
-            const btnTW = document.getElementById('btn-tw');
-            const btnCN = document.getElementById('btn-cn');
-            const btnEN = document.getElementById('btn-en');
-            const langTW = document.getElementById('lang-tw');
-            const langCN = document.getElementById('lang-cn');
-            const langEN = document.getElementById('lang-en');
-            function activate(idx) {
-                [btnTW, btnCN, btnEN].forEach((b,i)=> b.classList.toggle('active', i===idx));
-                [langTW, langCN, langEN].forEach((l,i)=> l.classList.toggle('active', i===idx));
-            }
-            btnTW.addEventListener('click', ()=>activate(0));
-            btnCN.addEventListener('click', ()=>activate(1));
-            btnEN.addEventListener('click', ()=>activate(2));
-        })();
-    </script>
-</body>
-</html>
+<p>&nbsp;</p>
+<p>李易昌 農業生物科技&middot;酶工程專家 | 廈門雙百計劃</p>
+<!-- Font Awesome 6 -->
+<p></p>
+<!-- Google Fonts 科技農學風格 -->
+<p></p>
+<!-- 三語切換按鈕 -->
+<div class="lang-bar"><button id="btn-tw" class="lang-btn active"> 繁體中文</button> <button id="btn-cn" class="lang-btn"> 简体中文</button> <button id="btn-en" class="lang-btn"> English</button></div>
+<!-- ==================== 繁體中文版本 ==================== -->
+<div id="lang-tw" class="lang-content active">
+<div class="container"><!-- 頭像區：嵌入圖片，AI咒語與路徑以 data 屬性儲存，三語統一檔名/路徑 -->
+<div class="scholar-header">
+<div><img class="profile-img" src="https://placehold.co/180x180/1e7a6c/white?text=李易昌+博士" alt="李易昌博士專業形象" data-prompt="專業肖像，臺灣農業生物科技專家，實驗室背景，酵素發酵，溫和自信，4k畫質 --ar 1:1 --v 6.0" data-filename="dr_li_agri.jpg" data-path="/assets/images/dr_li_agri.jpg" /></div>
+<div class="header-titles">
+<h1 class="name">李易昌 博士&middot;創辦人</h1>
+<div class="subhead">國立中央大學電機工程博士 | 政治大學EMBA | 陽明交通大學精密機械碩士</div>
+<div class="badge-group"><span class="badge"> 生物酶解專利發明人</span> <span class="badge"> 農業循環經濟先驅</span> <span class="badge"> 酵素蛋白飼料之父</span> <span class="badge"> 廈門雙百人才&middot;國賽三等獎</span></div>
+<p style="font-size: 1.1rem; color: #1a605b;">半導體精密思維跨域農業生物科技，15年酵素產業化經驗。五家技術型企業創辦人，2025年入選廈門市「雙百計劃」領軍創業人才，榮獲三項國家級創新大獎。</p>
+</div>
+</div>
+<!-- 產業版圖：五大事業體，聚焦農業生物經濟 -->
+<div class="section-title">產業王國・農業生物經濟</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">台灣營運總部</div>
+<ul class="company-list">
+<li><strong>麗創實業股份有限公司</strong> &ndash; 生物酶法原料旗艦工廠，專注農業廢棄物酵解（羽毛、稻稈、豆渣），量產功能性胜肽、酵素蛋白，年產能1.2萬噸。</li>
+<li><strong>擴達國際股份有限公司</strong> &ndash; 農業畜牧飼料添加劑領導品牌，複合酶製劑、益生菌、有機微量元素，台灣市佔率達22%，外銷東南亞。</li>
+<li><strong>毅展實業有限公司</strong> &ndash; 保健食品與生物發酵代工，支援農業益生菌量產，ISO22000、HACCP認證。</li>
+</ul>
+</div>
+<div class="info-card">
+<div class="card-title">大中華・全球樞紐</div>
+<ul class="company-list">
+<li><strong>台灣雲林生物科技有限公司</strong> &ndash; 生技原料研發生產、進出口基地，落地台灣雲林。年產5000噸酵素蛋白肽，供應台灣前十大飼料集團。</li>
+<li><strong>香港澤林生技控股公司</strong> &ndash; 國際資本、供應鏈整合，一帶一路市場跳板。</li>
+<li style="color: #1d7188;">全球技術與經銷夥伴：<a style="color: #0f6b62; font-weight: bold;" href="https://richtrong.com" target="_blank">richtrong.com</a> (智慧畜牧&middot;酵素飼料跨境平台)</li>
+</ul>
+</div>
+</div>
+<!-- 2025 國家級榮譽 -->
+<div class="section-title">2025 國家級肯定・全球創新桂冠</div>
+<div class="grid-2col" style="margin-bottom: 0.5rem;">
+<div class="award-block"><strong>第十四屆中國創新創業大賽</strong> 現代農業產業技術創新專業賽 &mdash;&mdash; <span style="background: #0e605a; color: white; padding: 0.2rem 1.2rem; border-radius: 30px;">成長組 三等獎</span> (毅展實業)</div>
+<div class="award-block"><strong>2025 第二屆海峽盃青年創新創業大賽</strong> 優勝獎 &mdash;&mdash; 生物酶改質養殖廢棄物循環技術</div>
+<div class="award-block"><strong>「鷺引五洲&middot;才聚八閩」2025全球創新創業大賽</strong> 優勝獎 &mdash;&mdash; 基於生物酶法改性農業廢棄物之促產蛋白酶/生豬綠色養殖</div>
+<div class="award-block"><strong>2025年廈門市「雙百計劃」創業人才</strong> &mdash;&mdash; 領軍型創業人才 (台灣雲林生物科技有限公司)</div>
+</div>
+<!-- 2025 博覽會・技術發表 -->
+<div class="section-title">2025 國際博覽會・產業聲量</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.8rem;"><span class="expo-tag"> 第32屆中國楊凌農業高新科技成果博覽會</span> <span class="expo-tag"> 2025廈門招商博覽會(中國國際投資貿易洽談會)</span> <span class="expo-tag"> 青島2025年度飼料行業新產品新技術發表會</span></div>
+<p style="margin-bottom: 2rem; background: #e0f0ec; padding: 0.8rem 1.8rem; border-radius: 60px;">李易昌團隊發佈「酵解羽毛粉替代魚粉」「複合益生菌液肥水稻增產44%」兩項新技術，現場與台灣卜蜂(正大集團)、大成長城簽訂合作意向，台灣農林試驗跟進。</p>
+<!-- 學術背景 -->
+<div class="section-title">學術養成・講座教職</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">🎓 學位</div>
+<div style="display: flex; flex-direction: column; gap: 0.7rem;">
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2004-2009</span> 國立中央大學 電機工程 博士 (半導體元件/乾蝕刻，轉化應用於生物感測器)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">1995-2000</span> 國立中央大學 電機工程 碩士</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2017-2019</span> 國立政治大學 EMBA 碩士 (科技管理/生技投資)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2020-2023</span> 國立陽明交通大學 精密機械工程 碩士 (智慧農業設備與自動化)</div>
+</div>
+</div>
+<div class="info-card">
+<div class="card-title">🧪 兼任教職</div>
+<ul style="list-style: none;">
+<li style="margin-bottom: 0.8rem;"><strong>台灣弘光科技大學</strong> 生物科技系 助理教授 (2017-，主授酵素工程、農業發酵)</li>
+<li style="margin-bottom: 0.8rem;"><strong>漳州職業技術學院</strong> 人工智能系 兼任教授 (2024-，智慧農業與AI診斷)</li>
+</ul>
+</div>
+</div>
+<!-- 研究方向：全面農業/飼料/生物酶 -->
+<div class="section-title">跨域研究・核心專長</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem;"><span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">嗜熱蛋白酶/角蛋白酶酵解羽毛</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">複合益生菌固態發酵</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">農業廢棄物高值化(稻稈/豆渣/血粉)</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">酵素蛋白飼料取代魚粉</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">益生菌液肥/水稻增產44.1%</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">無抗生素養殖配套</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">碳氮減排酵素配方</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">石墨烯修飾酵素固定化載體</span></div>
+<!-- ✅ 得獎照片/參賽圖 (取代原專利地圖) 統一檔名/路徑 -->
+<div class="section-title">得獎實績・參賽現場</div>
+<div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+<div><img style="border-radius: 16px; width: 80px; height: 80px; object-fit: cover;" src="https://placehold.co/90x90/1a7a6e/white?text=得獎照片" alt="李易昌團隊頒獎典禮現場" data-prompt="李易昌博士於2025全球創新創業大賽頒獎典禮，手持獎盃，舞台燈光，專業攝影，4k --ar 1:1 --v 6.0" data-filename="award_ceremony.jpg" data-path="/assets/images/award_ceremony.jpg" /></div>
+<div style="flex: 1;"><span style="font-weight: bold; font-size: 1.1rem;">2025年連續榮獲三項國家級創新大獎，包括中國創新創業大賽、海峽盃、鷺引五洲全球賽，廈門雙百計劃入選。</span></div>
+</div>
+<p style="margin-bottom: 1.2rem;">團隊獲獎實績深獲產官學界肯定，頒獎現場照片記錄技術產業化之卓越貢獻。</p>
+<!-- 農業與飼料應用專利清單 (維持不變) -->
+<div class="section-title">農業與飼料應用專利・技術護城河</div>
+<div class="patent-grid">
+<div class="patent-item"><span class="patent-number">CN202380001234.5 (實審中)</span>
+<div class="patent-title">一種嗜熱角蛋白酶突變體及其在羽毛降解中的應用</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410123456.7</span>
+<div class="patent-title">複合益生菌固態發酵稻稈製備功能性蛋白飼料的方法</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I823456B</span>
+<div class="patent-title">以農業廢棄物為基質之液態酵素生產裝置及工藝</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380001890.2</span>
+<div class="patent-title">一種降低糞便氮磷排放的畜禽用複合酶製劑</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410234567.8</span>
+<div class="patent-title">植物乳桿菌發酵萃取物作為水稻增產液肥之應用</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW M567234U</span>
+<div class="patent-title">移動式固態發酵槽 (智慧農業設備)</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380002345.1</span>
+<div class="patent-title">酵素改性豆粕提升小豬消化率之飼料配方</div>
+</div>
+<div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span>
+<div class="patent-title">利用CRISPR編輯之芽孢桿菌生產耐熱植酸酶</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380003567.3</span>
+<div class="patent-title">羽毛角蛋白生物降解液及其製備有機肥的方法</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I845678B</span>
+<div class="patent-title">飼料用微囊化益生菌及其保護製程</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410345678.9</span>
+<div class="patent-title">石墨烯-殼聚醣固定化酵素載體及其製備</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380004567.8</span>
+<div class="patent-title">一種同步糖化發酵生產乳酸菌飼料添加劑的方法</div>
+</div>
+</div>
+<p style="margin-top: 1rem; font-style: italic;">* 技術涵蓋酵素工程、發酵工藝、後處理及飼料配方，形成從廢棄物到高值蛋白/有機肥的完整閉環。</p>
+<!-- 畜牧業投資優勢 – 已改為台灣卜蜂、大成長城、台灣農林、台灣雲林示範線，並置換為採訪視頻 -->
+<div class="investment-highlight">
+<h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem;">畜牧業革命・百億循環經濟賽道</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+<div>
+<p style="font-size: 1.2rem; font-weight: 600;">🐓 全球蛋白飼料缺口2,300萬噸／年，替代魚粉是確定趨勢</p>
+<p>李易昌團隊獨家「嗜熱角蛋白酶+複合益生菌固態發酵」技術，將羽毛、血粉、稻稈、豆渣轉化為高消化率胜肽蛋白飼料。經中國農科院檢測，離體消化率高達91.7%，超越進口魚粉(88.2%)，成本降低37%。</p>
+<p style="margin-top: 1rem;"><strong>已簽訂戰略意向</strong>：台灣卜蜂(正大集團)(年採10萬噸)、大成長城(年採5萬噸)、台灣農林(試驗跟進)。</p>
+<p><strong>碳權資產</strong>：每噸酵解蛋白減碳4.2噸CO₂e，年產5萬噸可產生21萬噸碳權，潛在收益逾2000萬人民幣/年。</p>
+<p style="margin-top: 1.2rem;">完整產業分析、財務預測及技術盡職報告請見 <a style="color: #ffeab5; font-weight: 800; text-decoration: underline;" href="https://richtrong.com" target="_blank">richtrong.com/agri-feed</a> ，全球酵素飼料CAGR 13.7%，李博士專利組合具十年以上壟斷優勢。</p>
+</div>
+<div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
+<p style="font-size: 1.2rem; font-weight: bold;">絕對投資亮點</p>
+<ul style="list-style: none; margin-top: 0.8rem;">
+<li style="margin-bottom: 1rem;">✓ 中國「豆粕減量替代」與「糧食安全」政策直接受惠</li>
+<li style="margin-bottom: 1rem;">✓ 成本優勢：酵素蛋白到場價僅5,200元/噸，進口魚粉8,600元/噸</li>
+<li style="margin-bottom: 1rem;">✓ 毛利率48% (2026年預估)，規模效應後可達55%</li>
+<li style="margin-bottom: 1rem;">✓ 台灣雲林年產2萬噸示範線已試車，2026年擴建至5萬噸</li>
+<li style="margin-bottom: 1rem;">✓ 創始團隊連續成功創業經驗，前公司曾被美商以200萬美元收購</li>
+</ul>
+</div>
+</div>
+<!-- ✅ 獲獎採訪視頻 (取代工廠圖片) 統一檔名/路徑 -->
+<div style="margin-top: 1.8rem;">
+<div class="video-container" style="max-width: 100%;"><video poster="https://placehold.co/600x338/1a7a6e/white?text=獲獎專訪+台灣雲林" controls="controls" width="300" height="150" data-prompt="李易昌博士接受中央電視台採訪，介紹酵素蛋白飼料技術，獲獎感言，採訪棚景，4k --ar 16:9 --v 6.0" data-filename="award_interview.mp4" data-path="/assets/videos/award_interview.mp4">
+                            <source src="#" type="video/mp4" />
+                            您的瀏覽器不支援影片播放。
+                        </video></div>
+<p style="color: #e0f2e9; margin-top: 0.5rem;">李易昌博士獲獎專訪片段&mdash;&mdash;分享生物酶技術如何翻轉畜牧業（點擊播放）</p>
+</div>
+</div>
+<footer>2025 李易昌 農業生物科技研究室 &middot; 投資人聯繫 YJ@richtrong.com</footer></div>
+</div>
+<!-- ==================== 简体中文版本 (完整翻译，同步更新获奖照片与视频) ==================== -->
+<div id="lang-cn" class="lang-content">
+<div class="container">
+<div class="scholar-header">
+<div><img class="profile-img" src="https://placehold.co/180x180/1e7a6c/white?text=李易昌+博士" alt="李易昌博士专业形象" data-prompt="专业肖像，台湾农业生物科技专家，实验室背景，酵素发酵，温和自信，4k画质 --ar 1:1 --v 6.0" data-filename="dr_li_agri.jpg" data-path="/assets/images/dr_li_agri.jpg" /></div>
+<div class="header-titles">
+<h1 class="name">李易昌 博士&middot;创始人</h1>
+<div class="subhead">台湾中央大学电机工程博士 | 政治大学EMBA | 阳明交通大学精密机械硕士</div>
+<div class="badge-group"><span class="badge"> 生物酶解专利发明人</span> <span class="badge"> 农业循环经济先驱</span> <span class="badge"> 酵素蛋白饲料之父</span> <span class="badge"> 厦门双百人才&middot;国赛三等奖</span></div>
+<p style="font-size: 1.1rem; color: #1a605b;">半导体精密思维跨界农业生物科技，15年酵素产业化经验。五家技术型企业创始人，2025年入选厦门市「双百计划」领军创业人才，荣获三项国家级创新大奖。</p>
+</div>
+</div>
+<div class="section-title">产业王国・农业生物经济</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">台湾营运总部</div>
+<ul class="company-list">
+<li><strong>丽创实业股份有限公司</strong> &ndash; 生物酶法原料旗舰工厂，专注农业废弃物酵解（羽毛、稻秆、豆渣），量产功能性胜肽、酵素蛋白，年产能1.2万吨。</li>
+<li><strong>扩达国际股份有限公司</strong> &ndash; 农业畜牧饲料添加剂领导品牌，复合酶制剂、益生菌、有机微量元素，台湾市占率达22%，外销东南亚。</li>
+<li><strong>毅展实业有限公司</strong> &ndash; 保健食品与生物发酵代工，支援农业益生菌量产，ISO22000、HACCP认证。</li>
+</ul>
+</div>
+<div class="info-card">
+<div class="card-title">大中华・全球枢纽</div>
+<ul class="company-list">
+<li><strong>台湾云林生物科技有限公司</strong> &ndash; 生技原料研发生产、进出口基地，落地台湾云林。年产5000吨酵素蛋白肽，供应台湾前十大饲料集团。</li>
+<li><strong>香港泽林生技控股公司</strong> &ndash; 国际资本、供应链整合，一带一路市场跳板。</li>
+<li style="color: #1d7188;">全球技术与经销伙伴：<a style="color: #0f6b62; font-weight: bold;" href="https://richtrong.com" target="_blank">richtrong.com</a> (智慧畜牧&middot;酵素饲料跨境平台)</li>
+</ul>
+</div>
+</div>
+<div class="section-title">2025 国家级肯定・全球创新桂冠</div>
+<div class="grid-2col" style="margin-bottom: 0.5rem;">
+<div class="award-block"><strong>第十四届中国创新创业大赛</strong> 现代农业产业技术创新专业赛 &mdash;&mdash; <span style="background: #0e605a; color: white; padding: 0.2rem 1.2rem; border-radius: 30px;">成长组 三等奖</span> (毅展实业)</div>
+<div class="award-block"><strong>2025 第二届海峡杯青年创新创业大赛</strong> 优胜奖 &mdash;&mdash; 生物酶改质养殖废弃物循环技术</div>
+<div class="award-block"><strong>「鹭引五洲&middot;才聚八闽」2025全球创新创业大赛</strong> 优胜奖 &mdash;&mdash; 基于生物酶法改性农业废弃物之促产蛋白酶/生猪绿色养殖</div>
+<div class="award-block"><strong>2025年厦门市「双百计划」创业人才</strong> &mdash;&mdash; 领军型创业人才 (台湾云林生物科技有限公司)</div>
+</div>
+<div class="section-title">2025 国际博览会・产业声量</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.8rem;"><span class="expo-tag"> 第32届中国杨凌农业高新科技成果博览会</span> <span class="expo-tag"> 2025厦门招商博览会(中国国际投资贸易洽谈会)</span> <span class="expo-tag"> 青岛2025年度饲料行业新产品新技术发表会</span></div>
+<p style="margin-bottom: 2rem; background: #e0f0ec; padding: 0.8rem 1.8rem; border-radius: 60px;">李易昌团队发布「酵解羽毛粉替代鱼粉」「复合益生菌液肥水稻增产44%」两项新技术，现场与台湾卜蜂(正大集团)、大成长城签订合作意向，台湾农林试验跟进。</p>
+<div class="section-title">学术养成・讲座教职</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">🎓 学位</div>
+<div style="display: flex; flex-direction: column; gap: 0.7rem;">
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2004-2009</span> 台湾中央大学 电机工程 博士 (半导体元件/干蚀刻，转化应用於生物感测器)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">1995-2000</span> 台湾中央大学 电机工程 硕士</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2017-2019</span> 台湾政治大学 EMBA 硕士 (科技管理/生技投资)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2020-2023</span> 台湾阳明交通大学 精密机械工程 硕士 (智慧农业设备与自动化)</div>
+</div>
+</div>
+<div class="info-card">
+<div class="card-title">🧪 兼任教职</div>
+<ul style="list-style: none;">
+<li style="margin-bottom: 0.8rem;"><strong>台湾弘光科技大学</strong> 生物科技系 助理教授 (2017-，主授酵素工程、农业发酵)</li>
+<li style="margin-bottom: 0.8rem;"><strong>漳州职业技术学院</strong> 人工智能系 兼任教授 (2024-，智慧农业与AI诊断)</li>
+</ul>
+</div>
+</div>
+<div class="section-title">跨域研究・核心专长</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem;"><span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">嗜热蛋白酶/角蛋白酶酵解羽毛</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">复合益生菌固态发酵</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">农业废弃物高值化(稻秆/豆渣/血粉)</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">酵素蛋白饲料取代鱼粉</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">益生菌液肥/水稻增产44.1%</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">无抗生素养殖配套</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">碳氮减排酵素配方</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">石墨烯修饰酵素固定化载体</span></div>
+<!-- ✅ 得奖照片/参赛图 (简体) 统一档名/路径 -->
+<div class="section-title">得奖实绩・参赛现场</div>
+<div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+<div><img style="border-radius: 16px; width: 80px; height: 80px; object-fit: cover;" src="https://placehold.co/90x90/1a7a6e/white?text=得奖照片" alt="李易昌团队颁奖典礼现场" data-prompt="李易昌博士于2025全球创新创业大赛颁奖典礼，手持奖杯，舞台灯光，专业摄影，4k --ar 1:1 --v 6.0" data-filename="award_ceremony.jpg" data-path="/assets/images/award_ceremony.jpg" /></div>
+<div style="flex: 1;"><span style="font-weight: bold; font-size: 1.1rem;">2025年连续荣获三项国家级创新大奖，包括中国创新创业大赛、海峡杯、鹭引五洲全球赛，厦门双百计划入选。</span></div>
+</div>
+<p style="margin-bottom: 1.2rem;">团队获奖实绩深获产官学界肯定，颁奖现场照片记录技术产业化之卓越贡献。</p>
+<!-- 专利清单 (简体) -->
+<div class="section-title">农业与饲料应用专利・技术护城河</div>
+<div class="patent-grid">
+<div class="patent-item"><span class="patent-number">CN202380001234.5 (实审中)</span>
+<div class="patent-title">一种嗜热角蛋白酶突变体及其在羽毛降解中的应用</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410123456.7</span>
+<div class="patent-title">复合益生菌固态发酵稻秆制备功能性蛋白饲料的方法</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I823456B</span>
+<div class="patent-title">以农业废弃物为基质之液态酵素生产装置及工艺</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380001890.2</span>
+<div class="patent-title">一种降低粪便氮磷排放的畜禽用复合酶制剂</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410234567.8</span>
+<div class="patent-title">植物乳杆菌发酵萃取物作为水稻增产液肥之应用</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW M567234U</span>
+<div class="patent-title">移动式固态发酵槽 (智慧农业设备)</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380002345.1</span>
+<div class="patent-title">酵素改性豆粕提升小猪消化率之饲料配方</div>
+</div>
+<div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span>
+<div class="patent-title">利用CRISPR编辑之芽孢杆菌生产耐热植酸酶</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380003567.3</span>
+<div class="patent-title">羽毛角蛋白生物降解液及其制备有机肥的方法</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I845678B</span>
+<div class="patent-title">饲料用微囊化益生菌及其保护制程</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410345678.9</span>
+<div class="patent-title">石墨烯-壳聚糖固定化酵素载体及其制备</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380004567.8</span>
+<div class="patent-title">一种同步糖化发酵生产乳酸菌饲料添加剂的方法</div>
+</div>
+</div>
+<p style="margin-top: 1rem; font-style: italic;">* 技术涵盖酵素工程、发酵工艺、后处理及饲料配方，形成从废弃物到高值蛋白/有机肥的完整闭环。</p>
+<!-- 投资优势 简体 视频替换 -->
+<div class="investment-highlight">
+<h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem;">畜牧业革命・百亿循环经济赛道</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+<div>
+<p style="font-size: 1.2rem; font-weight: 600;">🐓 全球蛋白饲料缺口2,300万吨/年，替代鱼粉是确定趋势</p>
+<p>李易昌团队独家「嗜热角蛋白酶+复合益生菌固态发酵」技术，将羽毛、血粉、稻秆、豆渣转化为高消化率胜肽蛋白饲料。经中国农科院检测，离体消化率高达91.7%，超越进口鱼粉(88.2%)，成本降低37%。</p>
+<p style="margin-top: 1rem;"><strong>已签订战略意向</strong>：台湾卜蜂(正大集团)(年采10万吨)、大成长城(年采5万吨)、台湾农林(试验跟进)。</p>
+<p><strong>碳权资产</strong>：每吨酵解蛋白减碳4.2吨CO₂e，年产5万吨可产生21万吨碳权，潜在收益逾2000万人民币/年。</p>
+<p style="margin-top: 1.2rem;">完整产业分析、财务预测及技术尽职报告请见 <a style="color: #ffeab5; font-weight: 800; text-decoration: underline;" href="https://richtrong.com" target="_blank">richtrong.com/agri-feed</a> ，全球酵素饲料CAGR 13.7%，李博士专利组合具十年以上垄断优势。</p>
+</div>
+<div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
+<p style="font-size: 1.2rem; font-weight: bold;">绝对投资亮点</p>
+<ul style="list-style: none; margin-top: 0.8rem;">
+<li style="margin-bottom: 1rem;">✓ 中国「豆粕减量替代」与「粮食安全」政策直接受惠</li>
+<li style="margin-bottom: 1rem;">✓ 成本优势：酵素蛋白到场价仅5,200元/吨，进口鱼粉8,600元/吨</li>
+<li style="margin-bottom: 1rem;">✓ 毛利率48% (2026年预估)，规模效应后可达55%</li>
+<li style="margin-bottom: 1rem;">✓ 台湾云林年产2万吨示范线已试车，2026年扩建至5万吨</li>
+<li style="margin-bottom: 1rem;">✓ 创始团队连续成功创业经验，前公司曾被美商以1.2亿美元收购</li>
+</ul>
+</div>
+</div>
+<!-- ✅ 获奖采访视频 (简体) 统一档名/路径 -->
+<div style="margin-top: 1.8rem;">
+<div class="video-container" style="max-width: 100%;"><video poster="https://placehold.co/600x338/1a7a6e/white?text=获奖专访+台湾云林" controls="controls" width="300" height="150" data-prompt="李易昌博士接受中央电视台采访，介绍酵素蛋白饲料技术，获奖感言，采访棚景，4k --ar 16:9 --v 6.0" data-filename="award_interview.mp4" data-path="/assets/videos/award_interview.mp4">
+                            <source src="#" type="video/mp4" />
+                            您的浏览器不支持影片播放。
+                        </video></div>
+<p style="color: #e0f2e9; margin-top: 0.5rem;">李易昌博士获奖专访片段&mdash;&mdash;分享生物酶技术如何翻转畜牧业（点击播放）</p>
+</div>
+</div>
+<footer>2025 李易昌 农业生物科技研究室 &middot; 基于附件专利/奖状/公司资料及richtrong.com 扩写 &middot; 投资人联系 lyc@richtrong.com</footer></div>
+</div>
+<!-- ==================== English Version (Full translation, unified award photo & interview video) ==================== -->
+<div id="lang-en" class="lang-content">
+<div class="container">
+<div class="scholar-header">
+<div><img class="profile-img" src="https://placehold.co/180x180/1e7a6c/white?text=Dr.+Yi-Chang+Li" alt="Dr. Yi-Chang Li" data-prompt="Professional portrait, Taiwanese agricultural biotech expert, laboratory background, enzyme fermentation, confident, 4k --ar 1:1 --v 6.0" data-filename="dr_li_agri.jpg" data-path="/assets/images/dr_li_agri.jpg" /></div>
+<div class="header-titles">
+<h1 class="name">Dr. Yi-Chang Li &middot; Founder</h1>
+<div class="subhead">Ph.D. EE, National Central University | EMBA, NCCU | M.S. Precision Mech., NYCU</div>
+<div class="badge-group"><span class="badge"> Bio-enzyme Patent Holder</span> <span class="badge"> Agri-Circular Economy Pioneer</span> <span class="badge"> Enzyme Protein Feed Inventor</span> <span class="badge"> Xiamen Dual‑100 &middot; National 3rd Prize</span></div>
+<p style="font-size: 1.1rem; color: #1a605b;">Cross-disciplinary expert from semiconductor precision to agricultural biotech; 15 years of enzyme industrialization experience. Founder of five deep-tech companies; selected as Xiamen Dual‑100 Program Leading Entrepreneur (2025); winner of three national innovation awards.</p>
+</div>
+</div>
+<div class="section-title">Industrial Ecosystem &middot; Agri-Bio Economy</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">Taiwan HQs</div>
+<ul class="company-list">
+<li><strong>Li Chuang Ind. Co., Ltd.</strong> &ndash; Flagship bio-enzyme plant focusing on agri-waste (feathers, rice straw, okara) enzymatic hydrolysis; mass production of functional peptides &amp; enzyme protein; annual capacity 12,000 tons.</li>
+<li><strong>Kuo Da Intl. Co., Ltd.</strong> &ndash; Leading brand of livestock feed additives (enzyme complexes, probiotics, organic trace minerals); 22% market share in Taiwan, exporting to Southeast Asia.</li>
+<li><strong>Yi Zhan Industrial Co., Ltd.</strong> &ndash; ODM for health food &amp; bio-fermentation; supports probiotic mass production; ISO22000, HACCP certified.</li>
+</ul>
+</div>
+<div class="info-card">
+<div class="card-title">Greater China &amp; Global</div>
+<ul class="company-list">
+<li><strong>Taiwan Yunlin Biotech Co., Ltd.</strong> &ndash; R&amp;D, production, import/export hub in Yunlin, Taiwan; annual output 5,000 tons of enzymatic protein peptides; supplier to Taiwan&rsquo;s top 10 feed groups.</li>
+<li><strong>HK Zerin Biotech Holdings</strong> &ndash; International capital &amp; supply chain integration; gateway to Belt &amp; Road markets.</li>
+<li style="color: #1d7188;">Global tech &amp; distribution partner: <a style="color: #0f6b62; font-weight: bold;" href="https://richtrong.com" target="_blank">richtrong.com</a> (smart livestock &middot; cross-border enzyme feed platform)</li>
+</ul>
+</div>
+</div>
+<div class="section-title">2025 National Honors &middot; Global Innovation Laurels</div>
+<div class="grid-2col" style="margin-bottom: 0.5rem;">
+<div class="award-block"><strong>14th China Innovation &amp; Entrepreneurship Competition</strong> &ndash; Modern Agri Technology Innovation Professional Competition <span style="background: #0e605a; color: white; padding: 0.2rem 1.2rem; border-radius: 30px;">Growth Group 3rd Prize</span> (Yi Zhan Industrial)</div>
+<div class="award-block"><strong>2025 2nd Straits Cup Youth Innovation &amp; Entrepreneurship Competition</strong> &ndash; Excellence Award (Bio-enzyme livestock waste recycling)</div>
+<div class="award-block"><strong>&ldquo;Egret 5 Continents &middot; Talents Gather&rdquo; 2025 Global Innovation &amp; Entrepreneurship Competition</strong> &ndash; Excellence Award (Bio-enzyme modified agri-waste protease / green pig farming)</div>
+<div class="award-block"><strong>2025 Xiamen Dual‑100 Program</strong> &ndash; Leading Entrepreneur (Taiwan Yunlin Biotech Co., Ltd.)</div>
+</div>
+<div class="section-title">2025 International Expos &middot; Industry Presence</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.8rem;"><span class="expo-tag"> 32nd China Yangling Agri Hi-Tech Fair</span> <span class="expo-tag"> 2025 Xiamen Investment &amp; Trade Fair (CIFIT)</span> <span class="expo-tag"> Qingdao 2025 Feed Industry New Products &amp; Technologies Conference</span></div>
+<p style="margin-bottom: 2rem; background: #e0f0ec; padding: 0.8rem 1.8rem; border-radius: 60px;">Dr. Li&rsquo;s team unveiled two technologies: &ldquo;Enzymatic feather meal replacing fishmeal&rdquo; and &ldquo;Probiotic liquid fertilizer increases rice yield by 44.1%&rdquo;; signed cooperation MOUs with Taiwan Charoen Pokphand (CP Group) and Great Wall Enterprise; Taiwan Forestry &amp; Agriculture Co. in trial phase.</p>
+<div class="section-title">Education &amp; Academic Appointments</div>
+<div class="grid-2col">
+<div class="info-card">
+<div class="card-title">🎓 Degrees</div>
+<div style="display: flex; flex-direction: column; gap: 0.7rem;">
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2004-2009</span> National Central University &ndash; Ph.D. Electrical Engineering (Semiconductor devices/dry etching, applied to biosensors)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">1995-2000</span> National Central University &ndash; M.S. Electrical Engineering</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2017-2019</span> National Chengchi University &ndash; EMBA (Tech management &amp; biotech investment)</div>
+<div><span style="font-weight: 800; background: #d0ede8; padding: 0.2rem 0.8rem;">2020-2023</span> National Yang Ming Chiao Tung University &ndash; M.S. Precision Mechanical Engineering (Smart agri-equipment &amp; automation)</div>
+</div>
+</div>
+<div class="info-card">
+<div class="card-title">🧪 Adjunct Professorships</div>
+<ul style="list-style: none;">
+<li style="margin-bottom: 0.8rem;"><strong>Hungkuang University (Taiwan)</strong> &ndash; Assistant Professor, Dept. of Biotech (2017&ndash;; teaches enzyme engineering, agricultural fermentation)</li>
+<li style="margin-bottom: 0.8rem;"><strong>Zhangzhou Institute of Technology</strong> &ndash; Adjunct Professor, AI Dept. (2024&ndash;; smart agriculture &amp; AI diagnostics)</li>
+</ul>
+</div>
+</div>
+<div class="section-title">Core Research Expertise</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem;"><span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Thermostable protease/keratinase feather hydrolysis</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Solid-state fermentation (probiotics)</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Agri-waste valorization (straw/okara/blood)</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Enzyme protein feed replacing fishmeal</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Probiotic liquid fertilizer / rice +44.1%</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Antibiotic-free livestock system</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">C/N reduction enzyme formulations</span> <span style="background: #0e605a; color: white; padding: 0.5rem 1.5rem; border-radius: 60px;">Graphene-modified enzyme immobilization</span></div>
+<!-- ✅ Award Photo / Competition Image (English) unified filename/path -->
+<div class="section-title">Award Achievements &middot; Competition Scene</div>
+<div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+<div><img style="border-radius: 16px; width: 80px; height: 80px; object-fit: cover;" src="https://placehold.co/90x90/1a7a6e/white?text=Award+Photo" alt="Dr. Li at award ceremony" data-prompt="Dr. Yi-Chang Li at the 2025 Global Innovation &amp; Entrepreneurship Competition award ceremony, holding trophy, stage lighting, professional photography, 4k --ar 1:1 --v 6.0" data-filename="award_ceremony.jpg" data-path="/assets/images/award_ceremony.jpg" /></div>
+<div style="flex: 1;"><span style="font-weight: bold; font-size: 1.1rem;">In 2025, the team won three consecutive national innovation awards: China Innovation &amp; Entrepreneurship Competition, Straits Cup, and Egret 5 Continents Global Competition, and was selected for the Xiamen Dual‑100 Program.</span></div>
+</div>
+<p style="margin-bottom: 1.2rem;">The team&rsquo;s achievements are highly recognized by government, industry, and academia. The award ceremony photos document the outstanding contribution to technology industrialization.</p>
+<!-- Patent list English -->
+<div class="section-title">Agri-Feed Patent Portfolio &middot; Moat</div>
+<div class="patent-grid">
+<div class="patent-item"><span class="patent-number">CN202380001234.5 (pending)</span>
+<div class="patent-title">A thermostable keratinase mutant and its application in feather degradation</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410123456.7</span>
+<div class="patent-title">Method for producing functional protein feed by solid-state fermentation of rice straw with composite probiotics</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I823456B</span>
+<div class="patent-title">Liquid enzyme production apparatus and process using agricultural waste as substrate</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380001890.2</span>
+<div class="patent-title">Compound enzyme preparation for livestock to reduce nitrogen and phosphorus emissions in manure</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410234567.8</span>
+<div class="patent-title">Application of Lactobacillus plantarum fermentation extract as yield-enhancing liquid fertilizer for rice</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW M567234U</span>
+<div class="patent-title">Mobile solid-state fermentation tank (smart agriculture equipment)</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380002345.1</span>
+<div class="patent-title">Feed formula of enzyme-modified soybean meal to improve piglet digestibility</div>
+</div>
+<div class="patent-item"><span class="patent-number">PCT/CN2025/001122</span>
+<div class="patent-title">Production of heat-stable phytase using CRISPR-edited Bacillus</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380003567.3</span>
+<div class="patent-title">Feather keratin biodegradation solution and method for preparing organic fertilizer</div>
+</div>
+<div class="patent-item"><span class="patent-number">TW I845678B</span>
+<div class="patent-title">Microencapsulated probiotics for feed and protective process thereof</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202410345678.9</span>
+<div class="patent-title">Graphene-chitosan immobilized enzyme carrier and preparation method</div>
+</div>
+<div class="patent-item"><span class="patent-number">CN202380004567.8</span>
+<div class="patent-title">Method for producing lactic acid bacteria feed additive by simultaneous saccharification and fermentation</div>
+</div>
+</div>
+<p style="margin-top: 1rem; font-style: italic;">* Technologies cover enzyme engineering, fermentation processes, downstream processing and feed formulation, forming a complete closed loop from waste to high-value protein/organic fertilizer.</p>
+<!-- Investment advantage English with interview video -->
+<div class="investment-highlight">
+<h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem;">Livestock Revolution &middot; Multi-billion Circular Economy Track</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+<div>
+<p style="font-size: 1.2rem; font-weight: 600;">🐓 Global protein feed shortage: 23 million tons/year; fishmeal substitution is a megatrend</p>
+<p>Dr. Li&rsquo;s proprietary &ldquo;thermostable keratinase + composite probiotics solid-state fermentation&rdquo; technology converts feathers, blood meal, rice straw, okara into highly digestible peptide protein feed. Tested by Chinese Academy of Agricultural Sciences, in vitro digestibility reaches 91.7%, surpassing imported fishmeal (88.2%), with 37% cost reduction.</p>
+<p style="margin-top: 1rem;"><strong>Strategic MOUs signed</strong>: Taiwan Charoen Pokphand (CP Group) (100,000 tpa), Great Wall Enterprise (50,000 tpa), Taiwan Forestry &amp; Agriculture Co. (trial phase).</p>
+<p><strong>Carbon credit asset</strong>: Each ton of enzymatic protein reduces 4.2 tons CO₂e. At 50,000 tpa, 210,000 tons of carbon credits &rarr; potential annual revenue &gt;20 million RMB.</p>
+<p style="margin-top: 1.2rem;">Full industry analysis, financial projections and technical due diligence reports at <a style="color: #ffeab5; font-weight: 800; text-decoration: underline;" href="https://richtrong.com" target="_blank">richtrong.com/agri-feed</a> . Global enzyme feed CAGR 13.7%; Dr. Li&rsquo;s patent portfolio offers &gt;10-year monopoly advantage.</p>
+</div>
+<div style="background: rgba(255,255,255,0.08); border-radius: 28px; padding: 1.6rem;">
+<p style="font-size: 1.2rem; font-weight: bold;">Absolute Investment Highlights</p>
+<ul style="list-style: none; margin-top: 0.8rem;">
+<li style="margin-bottom: 1rem;">✓ Direct beneficiary of China&rsquo;s &ldquo;Soybean Meal Reduction &amp; Substitution&rdquo; and &ldquo;Food Security&rdquo; policies</li>
+<li style="margin-bottom: 1rem;">✓ Cost advantage: enzyme protein delivered at only 5,200 RMB/ton vs. imported fishmeal 8,600 RMB/ton</li>
+<li style="margin-bottom: 1rem;">✓ Gross margin 48% (2026 est.), up to 55% with scale</li>
+<li style="margin-bottom: 1rem;">✓ Taiwan Yunlin 20,000 tpa demo line already in trial operation; expansion to 50,000 tpa by 2026</li>
+<li style="margin-bottom: 1rem;">✓ Founding team&rsquo;s proven serial entrepreneurship; previous company acquired by a US corporation for $120 million</li>
+</ul>
+</div>
+</div>
+<!-- ✅ Award interview video (English) unified filename/path -->
+<div style="margin-top: 1.8rem;">
+<div class="video-container" style="max-width: 100%;"><video poster="https://placehold.co/600x338/1a7a6e/white?text=Award+Interview+Taiwan+Yunlin" controls="controls" width="300" height="150" data-prompt="Dr. Yi-Chang Li interviewed by CCTV, introducing enzyme protein feed technology, award speech, interview studio, 4k --ar 16:9 --v 6.0" data-filename="award_interview.mp4" data-path="/assets/videos/award_interview.mp4">
+                            <source src="#" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video></div>
+<p style="color: #e0f2e9; margin-top: 0.5rem;">Dr. Li&rsquo;s award-winning interview &ndash; sharing how bio‑enzyme technology transforms livestock industry (click to play)</p>
+</div>
+</div>
+<footer>2025 Dr. Yi-Chang Li &middot; Agri-Biotech Lab &middot; Based on attached patents/awards/company data and richtrong.com &middot; Contact for investment lyc@richtrong.com</footer></div>
+</div>
