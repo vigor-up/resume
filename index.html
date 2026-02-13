@@ -879,7 +879,28 @@
     setActiveLang('tw');
   })();
 </script>
+<script>
+  // 自動將所有圖片的 src 從佔位圖改為真實路徑 (以 /resume 為根目錄)
+  document.querySelectorAll('img[data-path]').forEach(img => {
+    // 因為您的網站部署在 /resume 子目錄，需加上前綴
+    img.src = '/resume' + img.dataset.path;
+  });
 
+  // 自動修正影片的 src 和 poster
+  document.querySelectorAll('video[data-path]').forEach(video => {
+    const source = video.querySelector('source');
+    if (source) {
+      source.src = '/resume' + video.dataset.path;
+      source.type = 'video/mp4';
+    }
+    // 若有 poster 佔位圖，一併修正（可選）
+    if (video.poster && video.poster.includes('placehold.co')) {
+      // 您可準備一張同名的 jpg 作為海報，或直接移除 poster
+      video.removeAttribute('poster');  // 直接移除，避免破圖
+    }
+    video.load(); // 重新載入影片
+  });
+</script>
 <!-- 所有圖像/影片皆已嵌入 data-filename 與 data-path，英文檔名統一，便於上傳至 /assets 目錄 -->
 </body>
 </html>
